@@ -175,7 +175,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 40, y: 40}
+  m_Size: {x: 30, y: 20}
   m_EdgeRadius: 0
 --- !u!4 &189105668
 Transform:
@@ -190,6 +190,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &279896463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 279896465}
+  - component: {fileID: 279896464}
+  m_Layer: 0
+  m_Name: ScorePoolsSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &279896464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279896463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1619f9090b56834a8316b4a00ae37ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToSpawn: 5
+  spawnBoundX: 9
+  spawnBoundY: 4.5
+  spawnedGO:
+  - {fileID: 860986582343511629, guid: 1b716c893fcf99844a1ff351954012ff, type: 3}
+--- !u!4 &279896465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279896463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -230,7 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82b8bb0025ae0a44b98c325ae98adfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeText: {fileID: 626967637}
+  scoreText: {fileID: 0}
+  score: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -241,7 +290,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.25511748, g: 0.48976254, b: 0.8584906, a: 0}
+  m_BackGroundColor: {r: 0.254902, g: 0.6393844, b: 0.85882354, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -334,11 +383,10 @@ MonoBehaviour:
   timeToSpawn: 1
   spawnBoundX: 11
   spawnBoundY: 3
-  bursts:
-  - {fileID: -2353962701761676544, guid: c04d4ed4f6b37bf4792a0af4b0a345ec, type: 3}
-  - {fileID: 4667456219164309766, guid: 3691217798dca644a8c1f9562a7cfbd5, type: 3}
-  - {fileID: 3762961378916041957, guid: 6b858b2ff640bf64aae087512ce007cb, type: 3}
-  timeBeforeDestroy: 3.1
+  spawnedGO:
+  - {fileID: 819846828241294589, guid: c04d4ed4f6b37bf4792a0af4b0a345ec, type: 3}
+  - {fileID: 5451199341482656484, guid: 3691217798dca644a8c1f9562a7cfbd5, type: 3}
+  - {fileID: 9195846332557315487, guid: 6b858b2ff640bf64aae087512ce007cb, type: 3}
 --- !u!1 &626967635
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +399,7 @@ GameObject:
   - component: {fileID: 626967638}
   - component: {fileID: 626967637}
   m_Layer: 5
-  m_Name: Time
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -576,6 +624,8 @@ MonoBehaviour:
   heart: {fileID: 4694538769126650297, guid: d8232b3a0927fc64d98da8f1c6d6eea4, type: 3}
   hpCount: 3
   loseSceneName: LoseScreen
+  drinkSpeed: 0.05
+  sizeInc: 0.1
 --- !u!1 &1949284672
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BurstsSpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     [SerializeField] private float timeToSpawn;
     [SerializeField] private float spawnBoundX;
     [SerializeField] private float spawnBoundY;
-    [SerializeField] private Bursts[] bursts;
-    [SerializeField] private float timeBeforeDestroy;
+    [SerializeField] private GameObject[] spawnedGO;
 
     private void Start()
     {
@@ -21,14 +20,12 @@ public class BurstsSpawner : MonoBehaviour
     {
         while (true)
         {
-            int rnd = Random.Range(0, bursts.Length);
+            int rnd = Random.Range(0, spawnedGO.Length);
 
             float rndX = Random.Range(-spawnBoundX, spawnBoundX);
             float rndY = Random.Range(-spawnBoundY, spawnBoundY);
 
-            GameObject burstGO = Instantiate(bursts[rnd].gameObject, new Vector2(rndX, rndY), Quaternion.identity);
-
-            Destroy(burstGO.gameObject, timeBeforeDestroy);
+            GameObject burstGO = Instantiate(spawnedGO[rnd].gameObject, new Vector2(rndX, rndY), Quaternion.identity);
 
             yield return new WaitForSeconds(timeToSpawn);
         }
