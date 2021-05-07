@@ -40,7 +40,7 @@ public class ScorePool : MonoBehaviour
         {
             Vector3 scaleChange = new Vector3(-Player.drinkSpeedStatic, -Player.drinkSpeedStatic, 0);
             transform.localScale += scaleChange;
-            sc.AddPoint(0.1f);
+            sc.AddPoint(1);
             player.IncreaceSize(0.01f);
             yield return new WaitForSeconds(0.1f);
         }
