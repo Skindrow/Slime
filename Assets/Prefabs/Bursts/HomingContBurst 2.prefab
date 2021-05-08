@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7348527638258437510}
   - component: {fileID: 4231649425704986640}
   m_Layer: 0
-  m_Name: HomingContBurst
+  m_Name: HomingContBurst 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e23c94e96e5e63c4fbe07c02acffdd38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75a333428e3a96d4d896bc1faee8f41e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

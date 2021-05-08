@@ -7,12 +7,34 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private GameObject heart;
     [SerializeField] private int hpCount;
-    [SerializeField] private string loseSceneName;
     [SerializeField] private float drinkSpeed;
-
+    [SerializeField] private Animator animator;
+    [SerializeField] private ParticleSystem drinkParticle;
 
 
     public static float drinkSpeedStatic;
+
+
+    private bool isDrinking = false;
+
+    public bool IsDrinking
+    {
+        get
+        {
+            return isDrinking;
+        }
+
+        set
+        {
+            isDrinking = value;
+            if (isDrinking)
+            {
+                drinkParticle.Play();
+            }
+            else
+                drinkParticle.Stop();
+        }
+    }
 
 
     private List<GameObject> hpArr = new List<GameObject>();
@@ -21,6 +43,7 @@ public class Player : MonoBehaviour
     {
         drinkSpeedStatic = drinkSpeed;
 
+        drinkParticle.Stop();
 
 
         for (int i = 0; i < hpCount; i++)
@@ -39,6 +62,8 @@ public class Player : MonoBehaviour
         }
     }
 
+
+
     public void PlayerDamaged()
     {
         hpCount--;
@@ -46,8 +71,8 @@ public class Player : MonoBehaviour
 
         if (hpCount == 0)
         {
-            SceneLoader.SceneLoad(loseSceneName);
-
+            UIController contr = GameObject.Find("Canvas").GetComponent<UIController>();
+            contr.Lose();
         }
 
 
@@ -68,5 +93,8 @@ public class Player : MonoBehaviour
     {
         Vector3 sizeChange = new Vector3(sizeInc, sizeInc, 0);
         transform.localScale += sizeChange;
+    }
+    private void Update()
+    {
     }
 }

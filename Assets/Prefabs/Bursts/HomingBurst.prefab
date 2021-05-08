@@ -102,7 +102,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e23c94e96e5e63c4fbe07c02acffdd38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75a333428e3a96d4d896bc1faee8f41e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,4 +131,5 @@ MonoBehaviour:
   timeToReact: 1
   numsOfShots: 3
   timeBeforeDestroy: 2
+  shoots: []
   coneOfAffection: 90

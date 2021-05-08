@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class ScorePool : MonoBehaviour
 {
-    private float score;
     private ScoreCounter sc;
     private float localScaleTreshold = 0.2f;
     private float timeToDestroy = 5;
 
-
+    private Player player;
+    private IEnumerator drink;
     private void Start()
     {
-        score = 10;
+        player = GameObject.FindObjectOfType<Player>();
         sc = GameObject.FindObjectOfType<ScoreCounter>().GetComponent<ScoreCounter>();
-        Destroy(gameObject, timeToDestroy);
+        StartCoroutine(DestroyPool());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Player>() != null)
         {
-            StartCoroutine(Drink());
+            print("enter");
+            StartCoroutine(drink = Drink());
+            player.IsDrinking = true;
         }
     }
 
@@ -29,23 +31,33 @@ public class ScorePool : MonoBehaviour
     {
         if (collision.GetComponent<Player>() != null)
         {
-            StopAllCoroutines();
+            player.IsDrinking = false;
+            StopCoroutine(drink);
         }
     }
 
     private IEnumerator Drink()
     {
-        Player player = GameObject.FindObjectOfType<Player>();
         while (transform.localScale.x > localScaleTreshold)
         {
             Vector3 scaleChange = new Vector3(-Player.drinkSpeedStatic, -Player.drinkSpeedStatic, 0);
             transform.localScale += scaleChange;
             sc.AddPoint(1);
             player.IncreaceSize(0.01f);
+
+
             yield return new WaitForSeconds(0.1f);
         }
-
-        
+        player.IsDrinking = false;
         Destroy(gameObject);
     }
+
+    private IEnumerator DestroyPool()
+    {
+        yield return new WaitForSeconds(timeToDestroy);
+        player.IsDrinking = false;
+        Destroy(gameObject);
+    }
+
+
 }

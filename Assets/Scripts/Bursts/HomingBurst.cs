@@ -39,11 +39,14 @@ public class HomingBurst : Bursts
         {
             shoots[i] = Instantiate(shot, transform.position, Quaternion.identity);
 
+
             shoots[i].gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2((target.position.x - transform.position.x) * force,
                 (target.position.y - transform.position.y) * force));
             rotZ += rotStep;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, rotZ));
         }
+
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
 
     }

@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerFourDirController : MonoBehaviour
 {
     [SerializeField] private float speed;
-
-
+    [SerializeField] private Animator animator;
+    [SerializeField] private Player player;
     private Rigidbody2D rb;
 
     void Start()
@@ -42,6 +42,17 @@ public class PlayerFourDirController : MonoBehaviour
         float moveInputVert = Input.GetAxisRaw("Vertical");
         rb.velocity = new Vector2(rb.velocity.x, moveInputVert * speed);
         if (moveInputHor != 0 && moveInputVert != 0)
-            rb.velocity = new Vector2(moveInputHor * speed /1.41f, moveInputVert * speed /1.41f);
+            rb.velocity = new Vector2(moveInputHor * speed / 1.41f, moveInputVert * speed / 1.41f);
+
+        if (moveInputHor != 0 && !player.IsDrinking || moveInputVert != 0 && !player.IsDrinking)
+        {
+            animator.Play("SlimeRun");
+        }
+        else if (!player.IsDrinking)
+        {
+            animator.Play("SlimeIdle");
+        }
+        else
+            animator.Play("SlimeDrink");
     }
 }

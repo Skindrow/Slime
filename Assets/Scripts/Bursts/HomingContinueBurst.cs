@@ -33,6 +33,10 @@ public class HomingContinueBurst : Bursts
 
             shootGO.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2((target.position.x - transform.position.x) * force,
                 (target.position.y - transform.position.y) * force));
+
+
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
             yield return new WaitForSeconds(timeBetweenShoots);
         }
 
