@@ -21,9 +21,8 @@ public class ScorePool : MonoBehaviour
     {
         if (collision.GetComponent<Player>() != null)
         {
-            print("enter");
-            StartCoroutine(drink = Drink());
             player.IsDrinking = true;
+            StartCoroutine(drink = Drink());
         }
     }
 

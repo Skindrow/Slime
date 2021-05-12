@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private GameObject heart;
-    [SerializeField] private int hpCount;
     [SerializeField] private float drinkSpeed;
     [SerializeField] private Animator animator;
     [SerializeField] private ParticleSystem drinkParticle;
@@ -37,20 +35,12 @@ public class Player : MonoBehaviour
     }
 
 
-    private List<GameObject> hpArr = new List<GameObject>();
-
     private void Start()
     {
         drinkSpeedStatic = drinkSpeed;
 
         drinkParticle.Stop();
 
-
-        for (int i = 0; i < hpCount; i++)
-        {
-            GameObject hpGO = Instantiate(heart, new Vector3(-10 + i, -4.2f, 0), Quaternion.identity);
-            hpArr.Add(hpGO);
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -66,27 +56,9 @@ public class Player : MonoBehaviour
 
     public void PlayerDamaged()
     {
-        hpCount--;
-        Destroy(hpArr[hpCount].gameObject);
 
-        if (hpCount == 0)
-        {
-            UIController contr = GameObject.Find("Canvas").GetComponent<UIController>();
-            contr.Lose();
-        }
-
-
-
-        DestroyAllDO();
-
-    }
-    private void DestroyAllDO()
-    {
-        GameObject[] allDamageObjects = GameObject.FindGameObjectsWithTag("DamageObject");
-        foreach (GameObject damageGO in allDamageObjects)
-        {
-            Destroy(damageGO);
-        }
+        UIController contr = GameObject.FindObjectOfType<UIController>();
+        contr.Lose();
     }
 
     public void IncreaceSize(float sizeInc)
