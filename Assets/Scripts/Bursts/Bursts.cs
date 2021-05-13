@@ -12,8 +12,5 @@ public class Bursts : MonoBehaviour
     [SerializeField] public float timeBeforeDestroy = 2;
     [SerializeField] public GameObject[] shoots;
 
-    private void Awake()
-    {
-        Destroy(gameObject, timeBeforeDestroy);
-    }
+
 }

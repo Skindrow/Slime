@@ -39,10 +39,10 @@ public class ScorePool : MonoBehaviour
     {
         while (transform.localScale.x > localScaleTreshold)
         {
-            Vector3 scaleChange = new Vector3(-Player.drinkSpeedStatic, -Player.drinkSpeedStatic, 0);
-            transform.localScale += scaleChange;
             sc.AddPoint(1);
             player.IncreaceSize(0.01f);
+            Vector3 scaleChange = new Vector3(-Player.drinkSpeedStatic, -Player.drinkSpeedStatic, 0);
+            transform.localScale += scaleChange;
 
 
             yield return new WaitForSeconds(0.1f);
@@ -56,6 +56,15 @@ public class ScorePool : MonoBehaviour
         yield return new WaitForSeconds(timeToDestroy);
         player.IsDrinking = false;
         Destroy(gameObject);
+    }
+    private void LateUpdate()
+    {
+        if (transform.localScale.x < localScaleTreshold)
+        {
+
+            player.IsDrinking = false;
+            Destroy(gameObject);
+        }
     }
 
 

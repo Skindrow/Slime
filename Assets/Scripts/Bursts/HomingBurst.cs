@@ -48,6 +48,7 @@ public class HomingBurst : Bursts
 
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
+        Destroy(gameObject , 0.5f);
 
     }
 }

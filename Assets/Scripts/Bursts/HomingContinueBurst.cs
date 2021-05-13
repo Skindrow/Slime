@@ -40,6 +40,8 @@ public class HomingContinueBurst : Bursts
             yield return new WaitForSeconds(timeBetweenShoots);
         }
 
+        Destroy(gameObject, 0.5f);
+
     }
 
 }
