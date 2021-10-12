@@ -9,7 +9,6 @@ public class Bursts : MonoBehaviour
     [SerializeField] protected Transform target;
     [SerializeField] protected float timeToReact;
     [SerializeField] protected int numsOfShots;
-    [SerializeField] public float timeBeforeDestroy = 2;
     [SerializeField] public GameObject[] shoots;
 
 

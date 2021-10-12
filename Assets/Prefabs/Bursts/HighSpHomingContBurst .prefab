@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7348527638258437510}
   - component: {fileID: 4231649425704986640}
   m_Layer: 0
-  m_Name: HomingContBurst
+  m_Name: 'HighSpHomingContBurst '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,12 +97,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 5547295338504098669, guid: 54142bce6e4f6a241b462ebf30a7d223, type: 3}
-  force: 150
+  force: 100
   target: {fileID: 4221208497385225872}
   timeToReact: 1
-  numsOfShots: 4
+  numsOfShots: 30
+  timeBeforeDestroy: 3
   shoots: []
-  timeBetweenShoots: 0.2
+  timeBetweenShoots: 0.05
 --- !u!1 &6314339259876551312
 GameObject:
   m_ObjectHideFlags: 0

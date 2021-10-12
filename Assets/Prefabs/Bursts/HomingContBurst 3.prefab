@@ -48,6 +48,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -96,11 +97,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 5547295338504098669, guid: 54142bce6e4f6a241b462ebf30a7d223, type: 3}
-  force: 300
+  force: 200
   target: {fileID: 4221208497385225872}
   timeToReact: 1
   numsOfShots: 1
-  timeBeforeDestroy: 3
   shoots: []
   timeBetweenShoots: 0.2
 --- !u!1 &6314339259876551312
